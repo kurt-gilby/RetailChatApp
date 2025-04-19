@@ -43,7 +43,7 @@ const handleActivity = async (context) => {
         {
           top: 3,
           question: userMessage,
-          includeUnstructuredSources: false
+          includeUnstructuredSources: true
         },
         {
           headers: {
