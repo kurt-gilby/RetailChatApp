@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail QnA Bot</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+      }
+      #webchat {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="webchat"></div>
+    <script>
+      (async function () {
+        const res = await fetch('/directline/token');
+        const { token } = await res.json();
+
+        window.WebChat.renderWebChat({
+          directLine: window.WebChat.createDirectLine({ token }),
+          userID: 'user123',
+          username: 'You',
+          locale: 'en-US'
+        }, document.getElementById('webchat'));
+      })();
+    </script>
+  </body>
+</html>
